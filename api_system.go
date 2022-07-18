@@ -23,12 +23,12 @@ import (
 // SystemApiService SystemApi service
 type SystemApiService service
 
-type ApiGetResourceLimitsRequest struct {
+type SystemApiGetResourceLimitsRequest struct {
 	ctx context.Context
 	ApiService *SystemApiService
 }
 
-func (r ApiGetResourceLimitsRequest) Execute() (*Limits, *http.Response, error) {
+func (r SystemApiGetResourceLimitsRequest) Execute() (*Limits, *http.Response, error) {
 	return r.ApiService.GetResourceLimitsExecute(r)
 }
 
@@ -38,10 +38,10 @@ GetResourceLimits Get resource limits information
 This operation retrieves the list of limitations on used resources, that are applied on the current instance of Registry.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetResourceLimitsRequest
+ @return SystemApiGetResourceLimitsRequest
 */
-func (a *SystemApiService) GetResourceLimits(ctx context.Context) ApiGetResourceLimitsRequest {
-	return ApiGetResourceLimitsRequest{
+func (a *SystemApiService) GetResourceLimits(ctx context.Context) SystemApiGetResourceLimitsRequest {
+	return SystemApiGetResourceLimitsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -49,7 +49,7 @@ func (a *SystemApiService) GetResourceLimits(ctx context.Context) ApiGetResource
 
 // Execute executes the request
 //  @return Limits
-func (a *SystemApiService) GetResourceLimitsExecute(r ApiGetResourceLimitsRequest) (*Limits, *http.Response, error) {
+func (a *SystemApiService) GetResourceLimitsExecute(r SystemApiGetResourceLimitsRequest) (*Limits, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -131,12 +131,12 @@ func (a *SystemApiService) GetResourceLimitsExecute(r ApiGetResourceLimitsReques
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetSystemInfoRequest struct {
+type SystemApiGetSystemInfoRequest struct {
 	ctx context.Context
 	ApiService *SystemApiService
 }
 
-func (r ApiGetSystemInfoRequest) Execute() (*SystemInfo, *http.Response, error) {
+func (r SystemApiGetSystemInfoRequest) Execute() (*SystemInfo, *http.Response, error) {
 	return r.ApiService.GetSystemInfoExecute(r)
 }
 
@@ -147,10 +147,10 @@ This operation retrieves information about the running registry system, such as 
 of the software and when it was built.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetSystemInfoRequest
+ @return SystemApiGetSystemInfoRequest
 */
-func (a *SystemApiService) GetSystemInfo(ctx context.Context) ApiGetSystemInfoRequest {
-	return ApiGetSystemInfoRequest{
+func (a *SystemApiService) GetSystemInfo(ctx context.Context) SystemApiGetSystemInfoRequest {
+	return SystemApiGetSystemInfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -158,7 +158,7 @@ func (a *SystemApiService) GetSystemInfo(ctx context.Context) ApiGetSystemInfoRe
 
 // Execute executes the request
 //  @return SystemInfo
-func (a *SystemApiService) GetSystemInfoExecute(r ApiGetSystemInfoRequest) (*SystemInfo, *http.Response, error) {
+func (a *SystemApiService) GetSystemInfoExecute(r SystemApiGetSystemInfoRequest) (*SystemInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}

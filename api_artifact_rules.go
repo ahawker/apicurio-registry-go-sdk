@@ -24,7 +24,7 @@ import (
 // ArtifactRulesApiService ArtifactRulesApi service
 type ArtifactRulesApiService service
 
-type ApiCreateArtifactRuleRequest struct {
+type ArtifactRulesApiCreateArtifactRuleRequest struct {
 	ctx context.Context
 	ApiService *ArtifactRulesApiService
 	groupId string
@@ -32,12 +32,12 @@ type ApiCreateArtifactRuleRequest struct {
 	rule *Rule
 }
 
-func (r ApiCreateArtifactRuleRequest) Rule(rule Rule) ApiCreateArtifactRuleRequest {
+func (r ArtifactRulesApiCreateArtifactRuleRequest) Rule(rule Rule) ArtifactRulesApiCreateArtifactRuleRequest {
 	r.rule = &rule
 	return r
 }
 
-func (r ApiCreateArtifactRuleRequest) Execute() (*http.Response, error) {
+func (r ArtifactRulesApiCreateArtifactRuleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.CreateArtifactRuleExecute(r)
 }
 
@@ -56,10 +56,10 @@ This operation can fail for the following reasons:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiCreateArtifactRuleRequest
+ @return ArtifactRulesApiCreateArtifactRuleRequest
 */
-func (a *ArtifactRulesApiService) CreateArtifactRule(ctx context.Context, groupId string, artifactId string) ApiCreateArtifactRuleRequest {
-	return ApiCreateArtifactRuleRequest{
+func (a *ArtifactRulesApiService) CreateArtifactRule(ctx context.Context, groupId string, artifactId string) ArtifactRulesApiCreateArtifactRuleRequest {
+	return ArtifactRulesApiCreateArtifactRuleRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -68,7 +68,7 @@ func (a *ArtifactRulesApiService) CreateArtifactRule(ctx context.Context, groupI
 }
 
 // Execute executes the request
-func (a *ArtifactRulesApiService) CreateArtifactRuleExecute(r ApiCreateArtifactRuleRequest) (*http.Response, error) {
+func (a *ArtifactRulesApiService) CreateArtifactRuleExecute(r ArtifactRulesApiCreateArtifactRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -167,7 +167,7 @@ func (a *ArtifactRulesApiService) CreateArtifactRuleExecute(r ApiCreateArtifactR
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteArtifactRuleRequest struct {
+type ArtifactRulesApiDeleteArtifactRuleRequest struct {
 	ctx context.Context
 	ApiService *ArtifactRulesApiService
 	groupId string
@@ -175,7 +175,7 @@ type ApiDeleteArtifactRuleRequest struct {
 	rule string
 }
 
-func (r ApiDeleteArtifactRuleRequest) Execute() (*http.Response, error) {
+func (r ArtifactRulesApiDeleteArtifactRuleRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteArtifactRuleExecute(r)
 }
 
@@ -198,10 +198,10 @@ This operation can fail for the following reasons:
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
  @param rule The unique name/type of a rule.
- @return ApiDeleteArtifactRuleRequest
+ @return ArtifactRulesApiDeleteArtifactRuleRequest
 */
-func (a *ArtifactRulesApiService) DeleteArtifactRule(ctx context.Context, groupId string, artifactId string, rule string) ApiDeleteArtifactRuleRequest {
-	return ApiDeleteArtifactRuleRequest{
+func (a *ArtifactRulesApiService) DeleteArtifactRule(ctx context.Context, groupId string, artifactId string, rule string) ArtifactRulesApiDeleteArtifactRuleRequest {
+	return ArtifactRulesApiDeleteArtifactRuleRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -211,7 +211,7 @@ func (a *ArtifactRulesApiService) DeleteArtifactRule(ctx context.Context, groupI
 }
 
 // Execute executes the request
-func (a *ArtifactRulesApiService) DeleteArtifactRuleExecute(r ApiDeleteArtifactRuleRequest) (*http.Response, error) {
+func (a *ArtifactRulesApiService) DeleteArtifactRuleExecute(r ArtifactRulesApiDeleteArtifactRuleRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -296,14 +296,14 @@ func (a *ArtifactRulesApiService) DeleteArtifactRuleExecute(r ApiDeleteArtifactR
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteArtifactRulesRequest struct {
+type ArtifactRulesApiDeleteArtifactRulesRequest struct {
 	ctx context.Context
 	ApiService *ArtifactRulesApiService
 	groupId string
 	artifactId string
 }
 
-func (r ApiDeleteArtifactRulesRequest) Execute() (*http.Response, error) {
+func (r ArtifactRulesApiDeleteArtifactRulesRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteArtifactRulesExecute(r)
 }
 
@@ -321,10 +321,10 @@ This operation can fail for the following reasons:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiDeleteArtifactRulesRequest
+ @return ArtifactRulesApiDeleteArtifactRulesRequest
 */
-func (a *ArtifactRulesApiService) DeleteArtifactRules(ctx context.Context, groupId string, artifactId string) ApiDeleteArtifactRulesRequest {
-	return ApiDeleteArtifactRulesRequest{
+func (a *ArtifactRulesApiService) DeleteArtifactRules(ctx context.Context, groupId string, artifactId string) ArtifactRulesApiDeleteArtifactRulesRequest {
+	return ArtifactRulesApiDeleteArtifactRulesRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -333,7 +333,7 @@ func (a *ArtifactRulesApiService) DeleteArtifactRules(ctx context.Context, group
 }
 
 // Execute executes the request
-func (a *ArtifactRulesApiService) DeleteArtifactRulesExecute(r ApiDeleteArtifactRulesRequest) (*http.Response, error) {
+func (a *ArtifactRulesApiService) DeleteArtifactRulesExecute(r ArtifactRulesApiDeleteArtifactRulesRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -417,7 +417,7 @@ func (a *ArtifactRulesApiService) DeleteArtifactRulesExecute(r ApiDeleteArtifact
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetArtifactRuleConfigRequest struct {
+type ArtifactRulesApiGetArtifactRuleConfigRequest struct {
 	ctx context.Context
 	ApiService *ArtifactRulesApiService
 	groupId string
@@ -425,7 +425,7 @@ type ApiGetArtifactRuleConfigRequest struct {
 	rule string
 }
 
-func (r ApiGetArtifactRuleConfigRequest) Execute() (*Rule, *http.Response, error) {
+func (r ArtifactRulesApiGetArtifactRuleConfigRequest) Execute() (*Rule, *http.Response, error) {
 	return r.ApiService.GetArtifactRuleConfigExecute(r)
 }
 
@@ -446,10 +446,10 @@ This operation can fail for the following reasons:
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
  @param rule The unique name/type of a rule.
- @return ApiGetArtifactRuleConfigRequest
+ @return ArtifactRulesApiGetArtifactRuleConfigRequest
 */
-func (a *ArtifactRulesApiService) GetArtifactRuleConfig(ctx context.Context, groupId string, artifactId string, rule string) ApiGetArtifactRuleConfigRequest {
-	return ApiGetArtifactRuleConfigRequest{
+func (a *ArtifactRulesApiService) GetArtifactRuleConfig(ctx context.Context, groupId string, artifactId string, rule string) ArtifactRulesApiGetArtifactRuleConfigRequest {
+	return ArtifactRulesApiGetArtifactRuleConfigRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -460,7 +460,7 @@ func (a *ArtifactRulesApiService) GetArtifactRuleConfig(ctx context.Context, gro
 
 // Execute executes the request
 //  @return Rule
-func (a *ArtifactRulesApiService) GetArtifactRuleConfigExecute(r ApiGetArtifactRuleConfigRequest) (*Rule, *http.Response, error) {
+func (a *ArtifactRulesApiService) GetArtifactRuleConfigExecute(r ArtifactRulesApiGetArtifactRuleConfigRequest) (*Rule, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -555,14 +555,14 @@ func (a *ArtifactRulesApiService) GetArtifactRuleConfigExecute(r ApiGetArtifactR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListArtifactRulesRequest struct {
+type ArtifactRulesApiListArtifactRulesRequest struct {
 	ctx context.Context
 	ApiService *ArtifactRulesApiService
 	groupId string
 	artifactId string
 }
 
-func (r ApiListArtifactRulesRequest) Execute() ([]RuleType, *http.Response, error) {
+func (r ArtifactRulesApiListArtifactRulesRequest) Execute() ([]RuleType, *http.Response, error) {
 	return r.ApiService.ListArtifactRulesExecute(r)
 }
 
@@ -582,10 +582,10 @@ This operation can fail for the following reasons:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiListArtifactRulesRequest
+ @return ArtifactRulesApiListArtifactRulesRequest
 */
-func (a *ArtifactRulesApiService) ListArtifactRules(ctx context.Context, groupId string, artifactId string) ApiListArtifactRulesRequest {
-	return ApiListArtifactRulesRequest{
+func (a *ArtifactRulesApiService) ListArtifactRules(ctx context.Context, groupId string, artifactId string) ArtifactRulesApiListArtifactRulesRequest {
+	return ArtifactRulesApiListArtifactRulesRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -595,7 +595,7 @@ func (a *ArtifactRulesApiService) ListArtifactRules(ctx context.Context, groupId
 
 // Execute executes the request
 //  @return []RuleType
-func (a *ArtifactRulesApiService) ListArtifactRulesExecute(r ApiListArtifactRulesRequest) ([]RuleType, *http.Response, error) {
+func (a *ArtifactRulesApiService) ListArtifactRulesExecute(r ArtifactRulesApiListArtifactRulesRequest) ([]RuleType, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -689,7 +689,7 @@ func (a *ArtifactRulesApiService) ListArtifactRulesExecute(r ApiListArtifactRule
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiTestUpdateArtifactRequest struct {
+type ArtifactRulesApiTestUpdateArtifactRequest struct {
 	ctx context.Context
 	ApiService *ArtifactRulesApiService
 	groupId string
@@ -698,12 +698,12 @@ type ApiTestUpdateArtifactRequest struct {
 }
 
 // The content of the artifact being tested. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) 
-func (r ApiTestUpdateArtifactRequest) Body(body interface{}) ApiTestUpdateArtifactRequest {
+func (r ArtifactRulesApiTestUpdateArtifactRequest) Body(body interface{}) ArtifactRulesApiTestUpdateArtifactRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiTestUpdateArtifactRequest) Execute() (*http.Response, error) {
+func (r ArtifactRulesApiTestUpdateArtifactRequest) Execute() (*http.Response, error) {
 	return r.ApiService.TestUpdateArtifactExecute(r)
 }
 
@@ -734,10 +734,10 @@ artifact (or the global rules if no artifact rules are enabled).
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiTestUpdateArtifactRequest
+ @return ArtifactRulesApiTestUpdateArtifactRequest
 */
-func (a *ArtifactRulesApiService) TestUpdateArtifact(ctx context.Context, groupId string, artifactId string) ApiTestUpdateArtifactRequest {
-	return ApiTestUpdateArtifactRequest{
+func (a *ArtifactRulesApiService) TestUpdateArtifact(ctx context.Context, groupId string, artifactId string) ArtifactRulesApiTestUpdateArtifactRequest {
+	return ArtifactRulesApiTestUpdateArtifactRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -746,7 +746,7 @@ func (a *ArtifactRulesApiService) TestUpdateArtifact(ctx context.Context, groupI
 }
 
 // Execute executes the request
-func (a *ArtifactRulesApiService) TestUpdateArtifactExecute(r ApiTestUpdateArtifactRequest) (*http.Response, error) {
+func (a *ArtifactRulesApiService) TestUpdateArtifactExecute(r ArtifactRulesApiTestUpdateArtifactRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -845,7 +845,7 @@ func (a *ArtifactRulesApiService) TestUpdateArtifactExecute(r ApiTestUpdateArtif
 	return localVarHTTPResponse, nil
 }
 
-type ApiUpdateArtifactRuleConfigRequest struct {
+type ArtifactRulesApiUpdateArtifactRuleConfigRequest struct {
 	ctx context.Context
 	ApiService *ArtifactRulesApiService
 	groupId string
@@ -854,12 +854,12 @@ type ApiUpdateArtifactRuleConfigRequest struct {
 	rule2 *Rule
 }
 
-func (r ApiUpdateArtifactRuleConfigRequest) Rule2(rule2 Rule) ApiUpdateArtifactRuleConfigRequest {
+func (r ArtifactRulesApiUpdateArtifactRuleConfigRequest) Rule2(rule2 Rule) ArtifactRulesApiUpdateArtifactRuleConfigRequest {
 	r.rule2 = &rule2
 	return r
 }
 
-func (r ApiUpdateArtifactRuleConfigRequest) Execute() (*Rule, *http.Response, error) {
+func (r ArtifactRulesApiUpdateArtifactRuleConfigRequest) Execute() (*Rule, *http.Response, error) {
 	return r.ApiService.UpdateArtifactRuleConfigExecute(r)
 }
 
@@ -882,10 +882,10 @@ This operation can fail for the following reasons:
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
  @param rule The unique name/type of a rule.
- @return ApiUpdateArtifactRuleConfigRequest
+ @return ArtifactRulesApiUpdateArtifactRuleConfigRequest
 */
-func (a *ArtifactRulesApiService) UpdateArtifactRuleConfig(ctx context.Context, groupId string, artifactId string, rule string) ApiUpdateArtifactRuleConfigRequest {
-	return ApiUpdateArtifactRuleConfigRequest{
+func (a *ArtifactRulesApiService) UpdateArtifactRuleConfig(ctx context.Context, groupId string, artifactId string, rule string) ArtifactRulesApiUpdateArtifactRuleConfigRequest {
+	return ArtifactRulesApiUpdateArtifactRuleConfigRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -896,7 +896,7 @@ func (a *ArtifactRulesApiService) UpdateArtifactRuleConfig(ctx context.Context, 
 
 // Execute executes the request
 //  @return Rule
-func (a *ArtifactRulesApiService) UpdateArtifactRuleConfigExecute(r ApiUpdateArtifactRuleConfigRequest) (*Rule, *http.Response, error) {
+func (a *ArtifactRulesApiService) UpdateArtifactRuleConfigExecute(r ArtifactRulesApiUpdateArtifactRuleConfigRequest) (*Rule, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

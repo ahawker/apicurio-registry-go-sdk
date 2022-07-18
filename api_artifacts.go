@@ -26,7 +26,7 @@ import (
 // ArtifactsApiService ArtifactsApi service
 type ArtifactsApiService service
 
-type ApiCreateArtifactRequest struct {
+type ArtifactsApiCreateArtifactRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	groupId string
@@ -43,66 +43,66 @@ type ApiCreateArtifactRequest struct {
 }
 
 // The content of the artifact being created. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) 
-func (r ApiCreateArtifactRequest) Body(body interface{}) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) Body(body interface{}) ArtifactsApiCreateArtifactRequest {
 	r.body = &body
 	return r
 }
 
 // Specifies the type of the artifact being added. Possible values include:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;)
-func (r ApiCreateArtifactRequest) XRegistryArtifactType(xRegistryArtifactType ArtifactType) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) XRegistryArtifactType(xRegistryArtifactType ArtifactType) ArtifactsApiCreateArtifactRequest {
 	r.xRegistryArtifactType = &xRegistryArtifactType
 	return r
 }
 
 // A client-provided, globally unique identifier for the new artifact.
-func (r ApiCreateArtifactRequest) XRegistryArtifactId(xRegistryArtifactId string) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) XRegistryArtifactId(xRegistryArtifactId string) ArtifactsApiCreateArtifactRequest {
 	r.xRegistryArtifactId = &xRegistryArtifactId
 	return r
 }
 
 // Specifies the version number of this initial version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically (starting with version &#x60;1&#x60;).
-func (r ApiCreateArtifactRequest) XRegistryVersion(xRegistryVersion string) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) XRegistryVersion(xRegistryVersion string) ArtifactsApiCreateArtifactRequest {
 	r.xRegistryVersion = &xRegistryVersion
 	return r
 }
 
 // Set this option to instruct the server on what to do if the artifact already exists.
-func (r ApiCreateArtifactRequest) IfExists(ifExists IfExists) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) IfExists(ifExists IfExists) ArtifactsApiCreateArtifactRequest {
 	r.ifExists = &ifExists
 	return r
 }
 
 // Used only when the &#x60;ifExists&#x60; query parameter is set to &#x60;RETURN_OR_UPDATE&#x60;, this parameter can be set to &#x60;true&#x60; to indicate that the server should \&quot;canonicalize\&quot; the content when searching for a matching version.  The canonicalization algorithm is unique to each artifact type, but typically involves removing extra whitespace and formatting the content in a consistent manner.
-func (r ApiCreateArtifactRequest) Canonical(canonical bool) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) Canonical(canonical bool) ArtifactsApiCreateArtifactRequest {
 	r.canonical = &canonical
 	return r
 }
 
 // Specifies the description of artifact being added. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content.
-func (r ApiCreateArtifactRequest) XRegistryDescription(xRegistryDescription string) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) XRegistryDescription(xRegistryDescription string) ArtifactsApiCreateArtifactRequest {
 	r.xRegistryDescription = &xRegistryDescription
 	return r
 }
 
 // Specifies the description of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content.
-func (r ApiCreateArtifactRequest) XRegistryDescriptionEncoded(xRegistryDescriptionEncoded string) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) XRegistryDescriptionEncoded(xRegistryDescriptionEncoded string) ArtifactsApiCreateArtifactRequest {
 	r.xRegistryDescriptionEncoded = &xRegistryDescriptionEncoded
 	return r
 }
 
 // Specifies the name of artifact being added. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content.
-func (r ApiCreateArtifactRequest) XRegistryName(xRegistryName string) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) XRegistryName(xRegistryName string) ArtifactsApiCreateArtifactRequest {
 	r.xRegistryName = &xRegistryName
 	return r
 }
 
 // Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content.
-func (r ApiCreateArtifactRequest) XRegistryNameEncoded(xRegistryNameEncoded string) ApiCreateArtifactRequest {
+func (r ArtifactsApiCreateArtifactRequest) XRegistryNameEncoded(xRegistryNameEncoded string) ArtifactsApiCreateArtifactRequest {
 	r.xRegistryNameEncoded = &xRegistryNameEncoded
 	return r
 }
 
-func (r ApiCreateArtifactRequest) Execute() (*ArtifactMetaData, *http.Response, error) {
+func (r ArtifactsApiCreateArtifactRequest) Execute() (*ArtifactMetaData, *http.Response, error) {
 	return r.ApiService.CreateArtifactExecute(r)
 }
 
@@ -164,10 +164,10 @@ This operation may fail for one of the following reasons:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId Unique ID of an artifact group.
- @return ApiCreateArtifactRequest
+ @return ArtifactsApiCreateArtifactRequest
 */
-func (a *ArtifactsApiService) CreateArtifact(ctx context.Context, groupId string) ApiCreateArtifactRequest {
-	return ApiCreateArtifactRequest{
+func (a *ArtifactsApiService) CreateArtifact(ctx context.Context, groupId string) ArtifactsApiCreateArtifactRequest {
+	return ArtifactsApiCreateArtifactRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -176,7 +176,7 @@ func (a *ArtifactsApiService) CreateArtifact(ctx context.Context, groupId string
 
 // Execute executes the request
 //  @return ArtifactMetaData
-func (a *ArtifactsApiService) CreateArtifactExecute(r ApiCreateArtifactRequest) (*ArtifactMetaData, *http.Response, error) {
+func (a *ArtifactsApiService) CreateArtifactExecute(r ArtifactsApiCreateArtifactRequest) (*ArtifactMetaData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -311,14 +311,14 @@ func (a *ArtifactsApiService) CreateArtifactExecute(r ApiCreateArtifactRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiDeleteArtifactRequest struct {
+type ArtifactsApiDeleteArtifactRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	groupId string
 	artifactId string
 }
 
-func (r ApiDeleteArtifactRequest) Execute() (*http.Response, error) {
+func (r ArtifactsApiDeleteArtifactRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteArtifactExecute(r)
 }
 
@@ -334,10 +334,10 @@ deleted.  This may fail for one of the following reasons:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiDeleteArtifactRequest
+ @return ArtifactsApiDeleteArtifactRequest
 */
-func (a *ArtifactsApiService) DeleteArtifact(ctx context.Context, groupId string, artifactId string) ApiDeleteArtifactRequest {
-	return ApiDeleteArtifactRequest{
+func (a *ArtifactsApiService) DeleteArtifact(ctx context.Context, groupId string, artifactId string) ArtifactsApiDeleteArtifactRequest {
+	return ArtifactsApiDeleteArtifactRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -346,7 +346,7 @@ func (a *ArtifactsApiService) DeleteArtifact(ctx context.Context, groupId string
 }
 
 // Execute executes the request
-func (a *ArtifactsApiService) DeleteArtifactExecute(r ApiDeleteArtifactRequest) (*http.Response, error) {
+func (a *ArtifactsApiService) DeleteArtifactExecute(r ArtifactsApiDeleteArtifactRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -430,13 +430,13 @@ func (a *ArtifactsApiService) DeleteArtifactExecute(r ApiDeleteArtifactRequest) 
 	return localVarHTTPResponse, nil
 }
 
-type ApiDeleteArtifactsInGroupRequest struct {
+type ArtifactsApiDeleteArtifactsInGroupRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	groupId string
 }
 
-func (r ApiDeleteArtifactsInGroupRequest) Execute() (*http.Response, error) {
+func (r ArtifactsApiDeleteArtifactsInGroupRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteArtifactsInGroupExecute(r)
 }
 
@@ -447,10 +447,10 @@ Deletes all of the artifacts that exist in a given group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId Unique ID of an artifact group.
- @return ApiDeleteArtifactsInGroupRequest
+ @return ArtifactsApiDeleteArtifactsInGroupRequest
 */
-func (a *ArtifactsApiService) DeleteArtifactsInGroup(ctx context.Context, groupId string) ApiDeleteArtifactsInGroupRequest {
-	return ApiDeleteArtifactsInGroupRequest{
+func (a *ArtifactsApiService) DeleteArtifactsInGroup(ctx context.Context, groupId string) ArtifactsApiDeleteArtifactsInGroupRequest {
+	return ArtifactsApiDeleteArtifactsInGroupRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -458,7 +458,7 @@ func (a *ArtifactsApiService) DeleteArtifactsInGroup(ctx context.Context, groupI
 }
 
 // Execute executes the request
-func (a *ArtifactsApiService) DeleteArtifactsInGroupExecute(r ApiDeleteArtifactsInGroupRequest) (*http.Response, error) {
+func (a *ArtifactsApiService) DeleteArtifactsInGroupExecute(r ArtifactsApiDeleteArtifactsInGroupRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -531,7 +531,7 @@ func (a *ArtifactsApiService) DeleteArtifactsInGroupExecute(r ApiDeleteArtifacts
 	return localVarHTTPResponse, nil
 }
 
-type ApiGetContentByGlobalIdRequest struct {
+type ArtifactsApiGetContentByGlobalIdRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	globalId int64
@@ -539,12 +539,12 @@ type ApiGetContentByGlobalIdRequest struct {
 }
 
 // Allows the user to specify if the content should be dereferenced when being returned
-func (r ApiGetContentByGlobalIdRequest) Dereference(dereference bool) ApiGetContentByGlobalIdRequest {
+func (r ArtifactsApiGetContentByGlobalIdRequest) Dereference(dereference bool) ArtifactsApiGetContentByGlobalIdRequest {
 	r.dereference = &dereference
 	return r
 }
 
-func (r ApiGetContentByGlobalIdRequest) Execute() (**os.File, *http.Response, error) {
+func (r ArtifactsApiGetContentByGlobalIdRequest) Execute() (**os.File, *http.Response, error) {
 	return r.ApiService.GetContentByGlobalIdExecute(r)
 }
 
@@ -562,10 +562,10 @@ This operation may fail for one of the following reasons:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param globalId Global identifier for an artifact version.
- @return ApiGetContentByGlobalIdRequest
+ @return ArtifactsApiGetContentByGlobalIdRequest
 */
-func (a *ArtifactsApiService) GetContentByGlobalId(ctx context.Context, globalId int64) ApiGetContentByGlobalIdRequest {
-	return ApiGetContentByGlobalIdRequest{
+func (a *ArtifactsApiService) GetContentByGlobalId(ctx context.Context, globalId int64) ArtifactsApiGetContentByGlobalIdRequest {
+	return ArtifactsApiGetContentByGlobalIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		globalId: globalId,
@@ -574,7 +574,7 @@ func (a *ArtifactsApiService) GetContentByGlobalId(ctx context.Context, globalId
 
 // Execute executes the request
 //  @return *os.File
-func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ApiGetContentByGlobalIdRequest) (**os.File, *http.Response, error) {
+func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ArtifactsApiGetContentByGlobalIdRequest) (**os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -670,13 +670,13 @@ func (a *ArtifactsApiService) GetContentByGlobalIdExecute(r ApiGetContentByGloba
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetContentByHashRequest struct {
+type ArtifactsApiGetContentByHashRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	contentHash string
 }
 
-func (r ApiGetContentByHashRequest) Execute() (**os.File, *http.Response, error) {
+func (r ArtifactsApiGetContentByHashRequest) Execute() (**os.File, *http.Response, error) {
 	return r.ApiService.GetContentByHashExecute(r)
 }
 
@@ -695,10 +695,10 @@ This operation may fail for one of the following reasons:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentHash SHA-256 content hash for a single artifact content.
- @return ApiGetContentByHashRequest
+ @return ArtifactsApiGetContentByHashRequest
 */
-func (a *ArtifactsApiService) GetContentByHash(ctx context.Context, contentHash string) ApiGetContentByHashRequest {
-	return ApiGetContentByHashRequest{
+func (a *ArtifactsApiService) GetContentByHash(ctx context.Context, contentHash string) ArtifactsApiGetContentByHashRequest {
+	return ArtifactsApiGetContentByHashRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentHash: contentHash,
@@ -707,7 +707,7 @@ func (a *ArtifactsApiService) GetContentByHash(ctx context.Context, contentHash 
 
 // Execute executes the request
 //  @return *os.File
-func (a *ArtifactsApiService) GetContentByHashExecute(r ApiGetContentByHashRequest) (**os.File, *http.Response, error) {
+func (a *ArtifactsApiService) GetContentByHashExecute(r ArtifactsApiGetContentByHashRequest) (**os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -800,13 +800,13 @@ func (a *ArtifactsApiService) GetContentByHashExecute(r ApiGetContentByHashReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetContentByIdRequest struct {
+type ArtifactsApiGetContentByIdRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	contentId int64
 }
 
-func (r ApiGetContentByIdRequest) Execute() (**os.File, *http.Response, error) {
+func (r ArtifactsApiGetContentByIdRequest) Execute() (**os.File, *http.Response, error) {
 	return r.ApiService.GetContentByIdExecute(r)
 }
 
@@ -825,10 +825,10 @@ This operation may fail for one of the following reasons:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentId Global identifier for a single artifact content.
- @return ApiGetContentByIdRequest
+ @return ArtifactsApiGetContentByIdRequest
 */
-func (a *ArtifactsApiService) GetContentById(ctx context.Context, contentId int64) ApiGetContentByIdRequest {
-	return ApiGetContentByIdRequest{
+func (a *ArtifactsApiService) GetContentById(ctx context.Context, contentId int64) ArtifactsApiGetContentByIdRequest {
+	return ArtifactsApiGetContentByIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentId: contentId,
@@ -837,7 +837,7 @@ func (a *ArtifactsApiService) GetContentById(ctx context.Context, contentId int6
 
 // Execute executes the request
 //  @return *os.File
-func (a *ArtifactsApiService) GetContentByIdExecute(r ApiGetContentByIdRequest) (**os.File, *http.Response, error) {
+func (a *ArtifactsApiService) GetContentByIdExecute(r ArtifactsApiGetContentByIdRequest) (**os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -930,7 +930,7 @@ func (a *ArtifactsApiService) GetContentByIdExecute(r ApiGetContentByIdRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiGetLatestArtifactRequest struct {
+type ArtifactsApiGetLatestArtifactRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	groupId string
@@ -939,12 +939,12 @@ type ApiGetLatestArtifactRequest struct {
 }
 
 // Allows the user to specify if the content should be dereferenced when being returned
-func (r ApiGetLatestArtifactRequest) Dereference(dereference bool) ApiGetLatestArtifactRequest {
+func (r ArtifactsApiGetLatestArtifactRequest) Dereference(dereference bool) ArtifactsApiGetLatestArtifactRequest {
 	r.dereference = &dereference
 	return r
 }
 
-func (r ApiGetLatestArtifactRequest) Execute() (**os.File, *http.Response, error) {
+func (r ArtifactsApiGetLatestArtifactRequest) Execute() (**os.File, *http.Response, error) {
 	return r.ApiService.GetLatestArtifactExecute(r)
 }
 
@@ -964,10 +964,10 @@ This operation may fail for one of the following reasons:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiGetLatestArtifactRequest
+ @return ArtifactsApiGetLatestArtifactRequest
 */
-func (a *ArtifactsApiService) GetLatestArtifact(ctx context.Context, groupId string, artifactId string) ApiGetLatestArtifactRequest {
-	return ApiGetLatestArtifactRequest{
+func (a *ArtifactsApiService) GetLatestArtifact(ctx context.Context, groupId string, artifactId string) ArtifactsApiGetLatestArtifactRequest {
+	return ArtifactsApiGetLatestArtifactRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -977,7 +977,7 @@ func (a *ArtifactsApiService) GetLatestArtifact(ctx context.Context, groupId str
 
 // Execute executes the request
 //  @return *os.File
-func (a *ArtifactsApiService) GetLatestArtifactExecute(r ApiGetLatestArtifactRequest) (**os.File, *http.Response, error) {
+func (a *ArtifactsApiService) GetLatestArtifactExecute(r ArtifactsApiGetLatestArtifactRequest) (**os.File, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1074,7 +1074,7 @@ func (a *ArtifactsApiService) GetLatestArtifactExecute(r ApiGetLatestArtifactReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListArtifactsInGroupRequest struct {
+type ArtifactsApiListArtifactsInGroupRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	groupId string
@@ -1085,30 +1085,30 @@ type ApiListArtifactsInGroupRequest struct {
 }
 
 // The number of artifacts to return.  Defaults to 20.
-func (r ApiListArtifactsInGroupRequest) Limit(limit int32) ApiListArtifactsInGroupRequest {
+func (r ArtifactsApiListArtifactsInGroupRequest) Limit(limit int32) ArtifactsApiListArtifactsInGroupRequest {
 	r.limit = &limit
 	return r
 }
 
 // The number of artifacts to skip before starting the result set.  Defaults to 0.
-func (r ApiListArtifactsInGroupRequest) Offset(offset int32) ApiListArtifactsInGroupRequest {
+func (r ArtifactsApiListArtifactsInGroupRequest) Offset(offset int32) ArtifactsApiListArtifactsInGroupRequest {
 	r.offset = &offset
 	return r
 }
 
 // Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;).
-func (r ApiListArtifactsInGroupRequest) Order(order SortOrder) ApiListArtifactsInGroupRequest {
+func (r ArtifactsApiListArtifactsInGroupRequest) Order(order SortOrder) ArtifactsApiListArtifactsInGroupRequest {
 	r.order = &order
 	return r
 }
 
 // The field to sort by.  Can be one of:  * &#x60;name&#x60; * &#x60;createdOn&#x60; 
-func (r ApiListArtifactsInGroupRequest) Orderby(orderby SortBy) ApiListArtifactsInGroupRequest {
+func (r ArtifactsApiListArtifactsInGroupRequest) Orderby(orderby SortBy) ArtifactsApiListArtifactsInGroupRequest {
 	r.orderby = &orderby
 	return r
 }
 
-func (r ApiListArtifactsInGroupRequest) Execute() (*ArtifactSearchResults, *http.Response, error) {
+func (r ArtifactsApiListArtifactsInGroupRequest) Execute() (*ArtifactSearchResults, *http.Response, error) {
 	return r.ApiService.ListArtifactsInGroupExecute(r)
 }
 
@@ -1119,10 +1119,10 @@ Returns a list of all artifacts in the group.  This list is paged.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId Unique ID of an artifact group.
- @return ApiListArtifactsInGroupRequest
+ @return ArtifactsApiListArtifactsInGroupRequest
 */
-func (a *ArtifactsApiService) ListArtifactsInGroup(ctx context.Context, groupId string) ApiListArtifactsInGroupRequest {
-	return ApiListArtifactsInGroupRequest{
+func (a *ArtifactsApiService) ListArtifactsInGroup(ctx context.Context, groupId string) ArtifactsApiListArtifactsInGroupRequest {
+	return ArtifactsApiListArtifactsInGroupRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -1131,7 +1131,7 @@ func (a *ArtifactsApiService) ListArtifactsInGroup(ctx context.Context, groupId 
 
 // Execute executes the request
 //  @return ArtifactSearchResults
-func (a *ArtifactsApiService) ListArtifactsInGroupExecute(r ApiListArtifactsInGroupRequest) (*ArtifactSearchResults, *http.Response, error) {
+func (a *ArtifactsApiService) ListArtifactsInGroupExecute(r ArtifactsApiListArtifactsInGroupRequest) (*ArtifactSearchResults, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1226,13 +1226,13 @@ func (a *ArtifactsApiService) ListArtifactsInGroupExecute(r ApiListArtifactsInGr
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReferencesByContentHashRequest struct {
+type ArtifactsApiReferencesByContentHashRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	contentHash string
 }
 
-func (r ApiReferencesByContentHashRequest) Execute() ([]ArtifactReference, *http.Response, error) {
+func (r ArtifactsApiReferencesByContentHashRequest) Execute() ([]ArtifactReference, *http.Response, error) {
 	return r.ApiService.ReferencesByContentHashExecute(r)
 }
 
@@ -1248,10 +1248,10 @@ This operation may fail for one of the following reasons:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentHash SHA-256 content hash for a single artifact content.
- @return ApiReferencesByContentHashRequest
+ @return ArtifactsApiReferencesByContentHashRequest
 */
-func (a *ArtifactsApiService) ReferencesByContentHash(ctx context.Context, contentHash string) ApiReferencesByContentHashRequest {
-	return ApiReferencesByContentHashRequest{
+func (a *ArtifactsApiService) ReferencesByContentHash(ctx context.Context, contentHash string) ArtifactsApiReferencesByContentHashRequest {
+	return ArtifactsApiReferencesByContentHashRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentHash: contentHash,
@@ -1260,7 +1260,7 @@ func (a *ArtifactsApiService) ReferencesByContentHash(ctx context.Context, conte
 
 // Execute executes the request
 //  @return []ArtifactReference
-func (a *ArtifactsApiService) ReferencesByContentHashExecute(r ApiReferencesByContentHashRequest) ([]ArtifactReference, *http.Response, error) {
+func (a *ArtifactsApiService) ReferencesByContentHashExecute(r ArtifactsApiReferencesByContentHashRequest) ([]ArtifactReference, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1334,13 +1334,13 @@ func (a *ArtifactsApiService) ReferencesByContentHashExecute(r ApiReferencesByCo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReferencesByContentIdRequest struct {
+type ArtifactsApiReferencesByContentIdRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	contentId int64
 }
 
-func (r ApiReferencesByContentIdRequest) Execute() ([]ArtifactReference, *http.Response, error) {
+func (r ArtifactsApiReferencesByContentIdRequest) Execute() ([]ArtifactReference, *http.Response, error) {
 	return r.ApiService.ReferencesByContentIdExecute(r)
 }
 
@@ -1355,10 +1355,10 @@ This operation may fail for one of the following reasons:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param contentId Global identifier for a single artifact content.
- @return ApiReferencesByContentIdRequest
+ @return ArtifactsApiReferencesByContentIdRequest
 */
-func (a *ArtifactsApiService) ReferencesByContentId(ctx context.Context, contentId int64) ApiReferencesByContentIdRequest {
-	return ApiReferencesByContentIdRequest{
+func (a *ArtifactsApiService) ReferencesByContentId(ctx context.Context, contentId int64) ArtifactsApiReferencesByContentIdRequest {
+	return ArtifactsApiReferencesByContentIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		contentId: contentId,
@@ -1367,7 +1367,7 @@ func (a *ArtifactsApiService) ReferencesByContentId(ctx context.Context, content
 
 // Execute executes the request
 //  @return []ArtifactReference
-func (a *ArtifactsApiService) ReferencesByContentIdExecute(r ApiReferencesByContentIdRequest) ([]ArtifactReference, *http.Response, error) {
+func (a *ArtifactsApiService) ReferencesByContentIdExecute(r ArtifactsApiReferencesByContentIdRequest) ([]ArtifactReference, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1441,13 +1441,13 @@ func (a *ArtifactsApiService) ReferencesByContentIdExecute(r ApiReferencesByCont
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiReferencesByGlobalIdRequest struct {
+type ArtifactsApiReferencesByGlobalIdRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	globalId int64
 }
 
-func (r ApiReferencesByGlobalIdRequest) Execute() ([]ArtifactReference, *http.Response, error) {
+func (r ArtifactsApiReferencesByGlobalIdRequest) Execute() ([]ArtifactReference, *http.Response, error) {
 	return r.ApiService.ReferencesByGlobalIdExecute(r)
 }
 
@@ -1462,10 +1462,10 @@ This operation may fail for one of the following reasons:
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param globalId Global identifier for an artifact version.
- @return ApiReferencesByGlobalIdRequest
+ @return ArtifactsApiReferencesByGlobalIdRequest
 */
-func (a *ArtifactsApiService) ReferencesByGlobalId(ctx context.Context, globalId int64) ApiReferencesByGlobalIdRequest {
-	return ApiReferencesByGlobalIdRequest{
+func (a *ArtifactsApiService) ReferencesByGlobalId(ctx context.Context, globalId int64) ArtifactsApiReferencesByGlobalIdRequest {
+	return ArtifactsApiReferencesByGlobalIdRequest{
 		ApiService: a,
 		ctx: ctx,
 		globalId: globalId,
@@ -1474,7 +1474,7 @@ func (a *ArtifactsApiService) ReferencesByGlobalId(ctx context.Context, globalId
 
 // Execute executes the request
 //  @return []ArtifactReference
-func (a *ArtifactsApiService) ReferencesByGlobalIdExecute(r ApiReferencesByGlobalIdRequest) ([]ArtifactReference, *http.Response, error) {
+func (a *ArtifactsApiService) ReferencesByGlobalIdExecute(r ArtifactsApiReferencesByGlobalIdRequest) ([]ArtifactReference, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1548,7 +1548,7 @@ func (a *ArtifactsApiService) ReferencesByGlobalIdExecute(r ApiReferencesByGloba
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchArtifactsRequest struct {
+type ArtifactsApiSearchArtifactsRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	name *string
@@ -1565,72 +1565,72 @@ type ApiSearchArtifactsRequest struct {
 }
 
 // Filter by artifact name.
-func (r ApiSearchArtifactsRequest) Name(name string) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Name(name string) ArtifactsApiSearchArtifactsRequest {
 	r.name = &name
 	return r
 }
 
 // The number of artifacts to skip before starting to collect the result set.  Defaults to 0.
-func (r ApiSearchArtifactsRequest) Offset(offset int32) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Offset(offset int32) ArtifactsApiSearchArtifactsRequest {
 	r.offset = &offset
 	return r
 }
 
 // The number of artifacts to return.  Defaults to 20.
-func (r ApiSearchArtifactsRequest) Limit(limit int32) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Limit(limit int32) ArtifactsApiSearchArtifactsRequest {
 	r.limit = &limit
 	return r
 }
 
 // Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;).
-func (r ApiSearchArtifactsRequest) Order(order SortOrder) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Order(order SortOrder) ArtifactsApiSearchArtifactsRequest {
 	r.order = &order
 	return r
 }
 
 // The field to sort by.  Can be one of:  * &#x60;name&#x60; * &#x60;createdOn&#x60; 
-func (r ApiSearchArtifactsRequest) Orderby(orderby SortBy) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Orderby(orderby SortBy) ArtifactsApiSearchArtifactsRequest {
 	r.orderby = &orderby
 	return r
 }
 
 // Filter by label.  Include one or more label to only return artifacts containing all of the specified labels.
-func (r ApiSearchArtifactsRequest) Labels(labels []string) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Labels(labels []string) ArtifactsApiSearchArtifactsRequest {
 	r.labels = &labels
 	return r
 }
 
 // Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example &#x60;properties&#x3D;foo:bar&#x60; will return only artifacts with a custom property named &#x60;foo&#x60; and value &#x60;bar&#x60;.
-func (r ApiSearchArtifactsRequest) Properties(properties []string) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Properties(properties []string) ArtifactsApiSearchArtifactsRequest {
 	r.properties = &properties
 	return r
 }
 
 // Filter by description.
-func (r ApiSearchArtifactsRequest) Description(description string) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Description(description string) ArtifactsApiSearchArtifactsRequest {
 	r.description = &description
 	return r
 }
 
 // Filter by artifact group.
-func (r ApiSearchArtifactsRequest) Group(group string) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) Group(group string) ArtifactsApiSearchArtifactsRequest {
 	r.group = &group
 	return r
 }
 
 // Filter by globalId.
-func (r ApiSearchArtifactsRequest) GlobalId(globalId int64) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) GlobalId(globalId int64) ArtifactsApiSearchArtifactsRequest {
 	r.globalId = &globalId
 	return r
 }
 
 // Filter by contentId.
-func (r ApiSearchArtifactsRequest) ContentId(contentId int64) ApiSearchArtifactsRequest {
+func (r ArtifactsApiSearchArtifactsRequest) ContentId(contentId int64) ArtifactsApiSearchArtifactsRequest {
 	r.contentId = &contentId
 	return r
 }
 
-func (r ApiSearchArtifactsRequest) Execute() (*ArtifactSearchResults, *http.Response, error) {
+func (r ArtifactsApiSearchArtifactsRequest) Execute() (*ArtifactSearchResults, *http.Response, error) {
 	return r.ApiService.SearchArtifactsExecute(r)
 }
 
@@ -1641,10 +1641,10 @@ Returns a paginated list of all artifacts that match the provided filter criteri
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchArtifactsRequest
+ @return ArtifactsApiSearchArtifactsRequest
 */
-func (a *ArtifactsApiService) SearchArtifacts(ctx context.Context) ApiSearchArtifactsRequest {
-	return ApiSearchArtifactsRequest{
+func (a *ArtifactsApiService) SearchArtifacts(ctx context.Context) ArtifactsApiSearchArtifactsRequest {
+	return ArtifactsApiSearchArtifactsRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1652,7 +1652,7 @@ func (a *ArtifactsApiService) SearchArtifacts(ctx context.Context) ApiSearchArti
 
 // Execute executes the request
 //  @return ArtifactSearchResults
-func (a *ArtifactsApiService) SearchArtifactsExecute(r ApiSearchArtifactsRequest) (*ArtifactSearchResults, *http.Response, error) {
+func (a *ArtifactsApiService) SearchArtifactsExecute(r ArtifactsApiSearchArtifactsRequest) (*ArtifactSearchResults, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1783,7 +1783,7 @@ func (a *ArtifactsApiService) SearchArtifactsExecute(r ApiSearchArtifactsRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiSearchArtifactsByContentRequest struct {
+type ArtifactsApiSearchArtifactsByContentRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	body **os.File
@@ -1796,48 +1796,48 @@ type ApiSearchArtifactsByContentRequest struct {
 }
 
 // The content to search for.
-func (r ApiSearchArtifactsByContentRequest) Body(body *os.File) ApiSearchArtifactsByContentRequest {
+func (r ArtifactsApiSearchArtifactsByContentRequest) Body(body *os.File) ArtifactsApiSearchArtifactsByContentRequest {
 	r.body = &body
 	return r
 }
 
 // Parameter that can be set to &#x60;true&#x60; to indicate that the server should \&quot;canonicalize\&quot; the content when searching for matching artifacts.  Canonicalization is unique to each artifact type, but typically involves removing any extra whitespace and formatting the content in a consistent manner.  Must be used along with the &#x60;artifactType&#x60; query parameter.
-func (r ApiSearchArtifactsByContentRequest) Canonical(canonical bool) ApiSearchArtifactsByContentRequest {
+func (r ArtifactsApiSearchArtifactsByContentRequest) Canonical(canonical bool) ArtifactsApiSearchArtifactsByContentRequest {
 	r.canonical = &canonical
 	return r
 }
 
 // Indicates the type of artifact represented by the content being used for the search.  This is only needed when using the &#x60;canonical&#x60; query parameter, so that the server knows how to canonicalize the content prior to searching for matching artifacts.
-func (r ApiSearchArtifactsByContentRequest) ArtifactType(artifactType ArtifactType) ApiSearchArtifactsByContentRequest {
+func (r ArtifactsApiSearchArtifactsByContentRequest) ArtifactType(artifactType ArtifactType) ArtifactsApiSearchArtifactsByContentRequest {
 	r.artifactType = &artifactType
 	return r
 }
 
 // The number of artifacts to skip before starting to collect the result set.  Defaults to 0.
-func (r ApiSearchArtifactsByContentRequest) Offset(offset int32) ApiSearchArtifactsByContentRequest {
+func (r ArtifactsApiSearchArtifactsByContentRequest) Offset(offset int32) ArtifactsApiSearchArtifactsByContentRequest {
 	r.offset = &offset
 	return r
 }
 
 // The number of artifacts to return.  Defaults to 20.
-func (r ApiSearchArtifactsByContentRequest) Limit(limit int32) ApiSearchArtifactsByContentRequest {
+func (r ArtifactsApiSearchArtifactsByContentRequest) Limit(limit int32) ArtifactsApiSearchArtifactsByContentRequest {
 	r.limit = &limit
 	return r
 }
 
 // Sort order, ascending (&#x60;asc&#x60;) or descending (&#x60;desc&#x60;).
-func (r ApiSearchArtifactsByContentRequest) Order(order string) ApiSearchArtifactsByContentRequest {
+func (r ArtifactsApiSearchArtifactsByContentRequest) Order(order string) ArtifactsApiSearchArtifactsByContentRequest {
 	r.order = &order
 	return r
 }
 
 // The field to sort by.  Can be one of:  * &#x60;name&#x60; * &#x60;createdOn&#x60; 
-func (r ApiSearchArtifactsByContentRequest) Orderby(orderby string) ApiSearchArtifactsByContentRequest {
+func (r ArtifactsApiSearchArtifactsByContentRequest) Orderby(orderby string) ArtifactsApiSearchArtifactsByContentRequest {
 	r.orderby = &orderby
 	return r
 }
 
-func (r ApiSearchArtifactsByContentRequest) Execute() (*ArtifactSearchResults, *http.Response, error) {
+func (r ArtifactsApiSearchArtifactsByContentRequest) Execute() (*ArtifactSearchResults, *http.Response, error) {
 	return r.ApiService.SearchArtifactsByContentExecute(r)
 }
 
@@ -1849,10 +1849,10 @@ posted content.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchArtifactsByContentRequest
+ @return ArtifactsApiSearchArtifactsByContentRequest
 */
-func (a *ArtifactsApiService) SearchArtifactsByContent(ctx context.Context) ApiSearchArtifactsByContentRequest {
-	return ApiSearchArtifactsByContentRequest{
+func (a *ArtifactsApiService) SearchArtifactsByContent(ctx context.Context) ArtifactsApiSearchArtifactsByContentRequest {
+	return ArtifactsApiSearchArtifactsByContentRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -1860,7 +1860,7 @@ func (a *ArtifactsApiService) SearchArtifactsByContent(ctx context.Context) ApiS
 
 // Execute executes the request
 //  @return ArtifactSearchResults
-func (a *ArtifactsApiService) SearchArtifactsByContentExecute(r ApiSearchArtifactsByContentRequest) (*ArtifactSearchResults, *http.Response, error) {
+func (a *ArtifactsApiService) SearchArtifactsByContentExecute(r ArtifactsApiSearchArtifactsByContentRequest) (*ArtifactSearchResults, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1965,7 +1965,7 @@ func (a *ArtifactsApiService) SearchArtifactsByContentExecute(r ApiSearchArtifac
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateArtifactRequest struct {
+type ArtifactsApiUpdateArtifactRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	groupId string
@@ -1979,42 +1979,42 @@ type ApiUpdateArtifactRequest struct {
 }
 
 // The new content of the artifact being updated. This is often, but not always, JSON data representing one of the supported artifact types:  * Avro (&#x60;AVRO&#x60;) * Protobuf (&#x60;PROTOBUF&#x60;) * JSON Schema (&#x60;JSON&#x60;) * Kafka Connect (&#x60;KCONNECT&#x60;) * OpenAPI (&#x60;OPENAPI&#x60;) * AsyncAPI (&#x60;ASYNCAPI&#x60;) * GraphQL (&#x60;GRAPHQL&#x60;) * Web Services Description Language (&#x60;WSDL&#x60;) * XML Schema (&#x60;XSD&#x60;) 
-func (r ApiUpdateArtifactRequest) Body(body interface{}) ApiUpdateArtifactRequest {
+func (r ArtifactsApiUpdateArtifactRequest) Body(body interface{}) ArtifactsApiUpdateArtifactRequest {
 	r.body = &body
 	return r
 }
 
 // Specifies the version number of this new version of the artifact content.  This would typically be a simple integer or a SemVer value.  If not provided, the server will assign a version number automatically.
-func (r ApiUpdateArtifactRequest) XRegistryVersion(xRegistryVersion string) ApiUpdateArtifactRequest {
+func (r ArtifactsApiUpdateArtifactRequest) XRegistryVersion(xRegistryVersion string) ArtifactsApiUpdateArtifactRequest {
 	r.xRegistryVersion = &xRegistryVersion
 	return r
 }
 
 // Specifies the artifact name of this new version of the artifact content. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content.
-func (r ApiUpdateArtifactRequest) XRegistryName(xRegistryName string) ApiUpdateArtifactRequest {
+func (r ArtifactsApiUpdateArtifactRequest) XRegistryName(xRegistryName string) ArtifactsApiUpdateArtifactRequest {
 	r.xRegistryName = &xRegistryName
 	return r
 }
 
 // Specifies the artifact name of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content.
-func (r ApiUpdateArtifactRequest) XRegistryNameEncoded(xRegistryNameEncoded string) ApiUpdateArtifactRequest {
+func (r ArtifactsApiUpdateArtifactRequest) XRegistryNameEncoded(xRegistryNameEncoded string) ArtifactsApiUpdateArtifactRequest {
 	r.xRegistryNameEncoded = &xRegistryNameEncoded
 	return r
 }
 
 // Specifies the artifact description of this new version of the artifact content. Description must be ASCII-only string. If this is not provided, the server will extract the description from the artifact content.
-func (r ApiUpdateArtifactRequest) XRegistryDescription(xRegistryDescription string) ApiUpdateArtifactRequest {
+func (r ArtifactsApiUpdateArtifactRequest) XRegistryDescription(xRegistryDescription string) ArtifactsApiUpdateArtifactRequest {
 	r.xRegistryDescription = &xRegistryDescription
 	return r
 }
 
 // Specifies the artifact description of this new version of the artifact content. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content.
-func (r ApiUpdateArtifactRequest) XRegistryDescriptionEncoded(xRegistryDescriptionEncoded string) ApiUpdateArtifactRequest {
+func (r ArtifactsApiUpdateArtifactRequest) XRegistryDescriptionEncoded(xRegistryDescriptionEncoded string) ArtifactsApiUpdateArtifactRequest {
 	r.xRegistryDescriptionEncoded = &xRegistryDescriptionEncoded
 	return r
 }
 
-func (r ApiUpdateArtifactRequest) Execute() (*ArtifactMetaData, *http.Response, error) {
+func (r ArtifactsApiUpdateArtifactRequest) Execute() (*ArtifactMetaData, *http.Response, error) {
 	return r.ApiService.UpdateArtifactExecute(r)
 }
 
@@ -2041,10 +2041,10 @@ When successful, this creates a new version of the artifact, making it the most 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiUpdateArtifactRequest
+ @return ArtifactsApiUpdateArtifactRequest
 */
-func (a *ArtifactsApiService) UpdateArtifact(ctx context.Context, groupId string, artifactId string) ApiUpdateArtifactRequest {
-	return ApiUpdateArtifactRequest{
+func (a *ArtifactsApiService) UpdateArtifact(ctx context.Context, groupId string, artifactId string) ArtifactsApiUpdateArtifactRequest {
+	return ArtifactsApiUpdateArtifactRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -2054,7 +2054,7 @@ func (a *ArtifactsApiService) UpdateArtifact(ctx context.Context, groupId string
 
 // Execute executes the request
 //  @return ArtifactMetaData
-func (a *ArtifactsApiService) UpdateArtifactExecute(r ApiUpdateArtifactRequest) (*ArtifactMetaData, *http.Response, error) {
+func (a *ArtifactsApiService) UpdateArtifactExecute(r ArtifactsApiUpdateArtifactRequest) (*ArtifactMetaData, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2178,7 +2178,7 @@ func (a *ArtifactsApiService) UpdateArtifactExecute(r ApiUpdateArtifactRequest) 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiUpdateArtifactStateRequest struct {
+type ArtifactsApiUpdateArtifactStateRequest struct {
 	ctx context.Context
 	ApiService *ArtifactsApiService
 	groupId string
@@ -2186,12 +2186,12 @@ type ApiUpdateArtifactStateRequest struct {
 	updateState *UpdateState
 }
 
-func (r ApiUpdateArtifactStateRequest) UpdateState(updateState UpdateState) ApiUpdateArtifactStateRequest {
+func (r ArtifactsApiUpdateArtifactStateRequest) UpdateState(updateState UpdateState) ArtifactsApiUpdateArtifactStateRequest {
 	r.updateState = &updateState
 	return r
 }
 
-func (r ApiUpdateArtifactStateRequest) Execute() (*http.Response, error) {
+func (r ArtifactsApiUpdateArtifactStateRequest) Execute() (*http.Response, error) {
 	return r.ApiService.UpdateArtifactStateExecute(r)
 }
 
@@ -2211,10 +2211,10 @@ This operation can fail for the following reasons:
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param groupId The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
  @param artifactId The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
- @return ApiUpdateArtifactStateRequest
+ @return ArtifactsApiUpdateArtifactStateRequest
 */
-func (a *ArtifactsApiService) UpdateArtifactState(ctx context.Context, groupId string, artifactId string) ApiUpdateArtifactStateRequest {
-	return ApiUpdateArtifactStateRequest{
+func (a *ArtifactsApiService) UpdateArtifactState(ctx context.Context, groupId string, artifactId string) ArtifactsApiUpdateArtifactStateRequest {
+	return ArtifactsApiUpdateArtifactStateRequest{
 		ApiService: a,
 		ctx: ctx,
 		groupId: groupId,
@@ -2223,7 +2223,7 @@ func (a *ArtifactsApiService) UpdateArtifactState(ctx context.Context, groupId s
 }
 
 // Execute executes the request
-func (a *ArtifactsApiService) UpdateArtifactStateExecute(r ApiUpdateArtifactStateRequest) (*http.Response, error) {
+func (a *ArtifactsApiService) UpdateArtifactStateExecute(r ArtifactsApiUpdateArtifactStateRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}

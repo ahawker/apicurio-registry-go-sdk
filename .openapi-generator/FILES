@@ -1,7 +1,5 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
-README.md
 api/openapi.yaml
 api_admin.go
 api_artifact_rules.go
@@ -58,7 +56,6 @@ docs/VersionMetaData.md
 docs/VersionSearchResults.md
 docs/VersionsApi.md
 git_push.sh
-go.mod
 go.sum
 model_artifact_meta_data.go
 model_artifact_reference.go

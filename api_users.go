@@ -23,12 +23,12 @@ import (
 // UsersApiService UsersApi service
 type UsersApiService service
 
-type ApiGetCurrentUserInfoRequest struct {
+type UsersApiGetCurrentUserInfoRequest struct {
 	ctx context.Context
 	ApiService *UsersApiService
 }
 
-func (r ApiGetCurrentUserInfoRequest) Execute() (*UserInfo, *http.Response, error) {
+func (r UsersApiGetCurrentUserInfoRequest) Execute() (*UserInfo, *http.Response, error) {
 	return r.ApiService.GetCurrentUserInfoExecute(r)
 }
 
@@ -38,10 +38,10 @@ GetCurrentUserInfo Get current user
 Returns information about the currently authenticated user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCurrentUserInfoRequest
+ @return UsersApiGetCurrentUserInfoRequest
 */
-func (a *UsersApiService) GetCurrentUserInfo(ctx context.Context) ApiGetCurrentUserInfoRequest {
-	return ApiGetCurrentUserInfoRequest{
+func (a *UsersApiService) GetCurrentUserInfo(ctx context.Context) UsersApiGetCurrentUserInfoRequest {
+	return UsersApiGetCurrentUserInfoRequest{
 		ApiService: a,
 		ctx: ctx,
 	}
@@ -49,7 +49,7 @@ func (a *UsersApiService) GetCurrentUserInfo(ctx context.Context) ApiGetCurrentU
 
 // Execute executes the request
 //  @return UserInfo
-func (a *UsersApiService) GetCurrentUserInfoExecute(r ApiGetCurrentUserInfoRequest) (*UserInfo, *http.Response, error) {
+func (a *UsersApiService) GetCurrentUserInfoExecute(r UsersApiGetCurrentUserInfoRequest) (*UserInfo, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
