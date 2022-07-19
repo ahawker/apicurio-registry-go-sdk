@@ -2831,7 +2831,7 @@ paths:
                           property-1: value1
                           property-2: true
             schema: {}
-          application/create.extended+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: "The new content of the artifact being updated. This is often,\
@@ -3174,7 +3174,7 @@ paths:
                           property-1: value1
                           property-2: true
             schema: {}
-          application/create.extended+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: "The content of the artifact being created. This is often, but\
@@ -3542,7 +3542,7 @@ paths:
                           property-1: value1
                           property-2: true
             schema: {}
-          application/create.extended+json:
+          application/json:
             schema:
               $ref: '#/components/schemas/ContentCreateRequest'
         description: "The content of the artifact version being created or the content\
