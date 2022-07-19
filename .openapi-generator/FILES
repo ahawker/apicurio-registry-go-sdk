@@ -10,7 +10,6 @@ api_search.go
 api_system.go
 api_users.go
 api_versions.go
-client.go
 configuration.go
 docs/AdminApi.md
 docs/ArtifactMetaData.md
