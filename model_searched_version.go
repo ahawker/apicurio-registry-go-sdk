@@ -13,7 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // SearchedVersion Models a single artifact from the result set returned when searching for artifacts.
@@ -23,7 +22,7 @@ type SearchedVersion struct {
 	// 
 	Description *string `json:"description,omitempty"`
 	// 
-	CreatedOn time.Time `json:"createdOn"`
+	CreatedOn string `json:"createdOn"`
 	// 
 	CreatedBy string `json:"createdBy"`
 	Type ArtifactType `json:"type"`
@@ -46,7 +45,7 @@ type SearchedVersion struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchedVersion(createdOn time.Time, createdBy string, type_ ArtifactType, state ArtifactState, globalId int64, version string, contentId int64, references []ArtifactReference) *SearchedVersion {
+func NewSearchedVersion(createdOn string, createdBy string, type_ ArtifactType, state ArtifactState, globalId int64, version string, contentId int64, references []ArtifactReference) *SearchedVersion {
 	this := SearchedVersion{}
 	this.CreatedOn = createdOn
 	this.CreatedBy = createdBy
@@ -132,9 +131,9 @@ func (o *SearchedVersion) SetDescription(v string) {
 }
 
 // GetCreatedOn returns the CreatedOn field value
-func (o *SearchedVersion) GetCreatedOn() time.Time {
+func (o *SearchedVersion) GetCreatedOn() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -143,7 +142,7 @@ func (o *SearchedVersion) GetCreatedOn() time.Time {
 
 // GetCreatedOnOk returns a tuple with the CreatedOn field value
 // and a boolean to check if the value has been set.
-func (o *SearchedVersion) GetCreatedOnOk() (*time.Time, bool) {
+func (o *SearchedVersion) GetCreatedOnOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -151,7 +150,7 @@ func (o *SearchedVersion) GetCreatedOnOk() (*time.Time, bool) {
 }
 
 // SetCreatedOn sets field value
-func (o *SearchedVersion) SetCreatedOn(v time.Time) {
+func (o *SearchedVersion) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
 

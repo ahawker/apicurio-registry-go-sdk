@@ -4236,7 +4236,6 @@ components:
         version:
           type: string
         builtOn:
-          format: date-time
           type: string
       title: Root Type for SystemInfo
       type: object
@@ -4371,15 +4370,11 @@ components:
         createdBy:
           type: string
         createdOn:
-          format: date-time
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         modifiedBy:
           type: string
         modifiedOn:
-          format: date-time
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         id:
           description: The ID of a single artifact.
           example: '"example-artifact"'
@@ -4462,9 +4457,7 @@ components:
           type: string
         createdOn:
           description: ""
-          format: date-time
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         createdBy:
           description: ""
           type: string
@@ -4479,9 +4472,7 @@ components:
           $ref: '#/components/schemas/ArtifactState'
         modifiedOn:
           description: ""
-          format: date-time
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         modifiedBy:
           description: ""
           type: string
@@ -4531,9 +4522,7 @@ components:
         createdBy:
           type: string
         createdOn:
-          format: date-time
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         type:
           $ref: '#/components/schemas/ArtifactType'
         globalId:
@@ -4603,9 +4592,7 @@ components:
           type: string
         createdOn:
           description: ""
-          format: date-time
           type: string
-          x-codegen-formatPattern: yyyy-MM-dd'T'HH:mm:ssZ
         createdBy:
           description: ""
           type: string

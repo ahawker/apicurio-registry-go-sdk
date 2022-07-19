@@ -13,7 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // SearchedArtifact Models a single artifact from the result set returned when searching for artifacts.
@@ -25,7 +24,7 @@ type SearchedArtifact struct {
 	// 
 	Description *string `json:"description,omitempty"`
 	// 
-	CreatedOn time.Time `json:"createdOn"`
+	CreatedOn string `json:"createdOn"`
 	// 
 	CreatedBy string `json:"createdBy"`
 	Type ArtifactType `json:"type"`
@@ -33,7 +32,7 @@ type SearchedArtifact struct {
 	Labels []string `json:"labels,omitempty"`
 	State ArtifactState `json:"state"`
 	// 
-	ModifiedOn *time.Time `json:"modifiedOn,omitempty"`
+	ModifiedOn *string `json:"modifiedOn,omitempty"`
 	// 
 	ModifiedBy *string `json:"modifiedBy,omitempty"`
 	// An ID of a single artifact group.
@@ -44,7 +43,7 @@ type SearchedArtifact struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSearchedArtifact(id string, createdOn time.Time, createdBy string, type_ ArtifactType, state ArtifactState) *SearchedArtifact {
+func NewSearchedArtifact(id string, createdOn string, createdBy string, type_ ArtifactType, state ArtifactState) *SearchedArtifact {
 	this := SearchedArtifact{}
 	this.Id = id
 	this.CreatedOn = createdOn
@@ -151,9 +150,9 @@ func (o *SearchedArtifact) SetDescription(v string) {
 }
 
 // GetCreatedOn returns the CreatedOn field value
-func (o *SearchedArtifact) GetCreatedOn() time.Time {
+func (o *SearchedArtifact) GetCreatedOn() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -162,7 +161,7 @@ func (o *SearchedArtifact) GetCreatedOn() time.Time {
 
 // GetCreatedOnOk returns a tuple with the CreatedOn field value
 // and a boolean to check if the value has been set.
-func (o *SearchedArtifact) GetCreatedOnOk() (*time.Time, bool) {
+func (o *SearchedArtifact) GetCreatedOnOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,7 +169,7 @@ func (o *SearchedArtifact) GetCreatedOnOk() (*time.Time, bool) {
 }
 
 // SetCreatedOn sets field value
-func (o *SearchedArtifact) SetCreatedOn(v time.Time) {
+func (o *SearchedArtifact) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
 
@@ -279,9 +278,9 @@ func (o *SearchedArtifact) SetState(v ArtifactState) {
 }
 
 // GetModifiedOn returns the ModifiedOn field value if set, zero value otherwise.
-func (o *SearchedArtifact) GetModifiedOn() time.Time {
+func (o *SearchedArtifact) GetModifiedOn() string {
 	if o == nil || o.ModifiedOn == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 	return *o.ModifiedOn
@@ -289,7 +288,7 @@ func (o *SearchedArtifact) GetModifiedOn() time.Time {
 
 // GetModifiedOnOk returns a tuple with the ModifiedOn field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchedArtifact) GetModifiedOnOk() (*time.Time, bool) {
+func (o *SearchedArtifact) GetModifiedOnOk() (*string, bool) {
 	if o == nil || o.ModifiedOn == nil {
 		return nil, false
 	}
@@ -305,8 +304,8 @@ func (o *SearchedArtifact) HasModifiedOn() bool {
 	return false
 }
 
-// SetModifiedOn gets a reference to the given time.Time and assigns it to the ModifiedOn field.
-func (o *SearchedArtifact) SetModifiedOn(v time.Time) {
+// SetModifiedOn gets a reference to the given string and assigns it to the ModifiedOn field.
+func (o *SearchedArtifact) SetModifiedOn(v string) {
 	o.ModifiedOn = &v
 }
 

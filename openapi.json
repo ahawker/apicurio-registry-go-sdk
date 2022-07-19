@@ -3006,7 +3006,6 @@
                         "type": "string"
                     },
                     "builtOn": {
-                        "format": "date-time",
                         "type": "string"
                     }
                 },
@@ -3176,17 +3175,13 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
-                        "type": "string",
-                        "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        "type": "string"
                     },
                     "modifiedBy": {
                         "type": "string"
                     },
                     "modifiedOn": {
-                        "format": "date-time",
-                        "type": "string",
-                        "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        "type": "string"
                     },
                     "id": {
                         "$ref": "#/components/schemas/ArtifactId",
@@ -3293,10 +3288,8 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
                         "description": "",
-                        "type": "string",
-                        "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        "type": "string"
                     },
                     "createdBy": {
                         "description": "",
@@ -3318,10 +3311,8 @@
                         "description": ""
                     },
                     "modifiedOn": {
-                        "format": "date-time",
                         "description": "",
-                        "type": "string",
-                        "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        "type": "string"
                     },
                     "modifiedBy": {
                         "description": "",
@@ -3374,9 +3365,7 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
-                        "type": "string",
-                        "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        "type": "string"
                     },
                     "type": {
                         "$ref": "#/components/schemas/ArtifactType",
@@ -3468,10 +3457,8 @@
                         "type": "string"
                     },
                     "createdOn": {
-                        "format": "date-time",
                         "description": "",
-                        "type": "string",
-                        "x-codegen-formatPattern": "yyyy-MM-dd'T'HH:mm:ssZ"
+                        "type": "string"
                     },
                     "createdBy": {
                         "description": "",

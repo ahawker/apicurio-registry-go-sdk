@@ -13,7 +13,6 @@ package openapi
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // VersionMetaData 
@@ -22,7 +21,7 @@ type VersionMetaData struct {
 	Name *string `json:"name,omitempty"`
 	Description *string `json:"description,omitempty"`
 	CreatedBy string `json:"createdBy"`
-	CreatedOn time.Time `json:"createdOn"`
+	CreatedOn string `json:"createdOn"`
 	Type ArtifactType `json:"type"`
 	// 
 	GlobalId int64 `json:"globalId"`
@@ -43,7 +42,7 @@ type VersionMetaData struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewVersionMetaData(version string, createdBy string, createdOn time.Time, type_ ArtifactType, globalId int64, id string, contentId int64) *VersionMetaData {
+func NewVersionMetaData(version string, createdBy string, createdOn string, type_ ArtifactType, globalId int64, id string, contentId int64) *VersionMetaData {
 	this := VersionMetaData{}
 	this.Version = version
 	this.CreatedBy = createdBy
@@ -176,9 +175,9 @@ func (o *VersionMetaData) SetCreatedBy(v string) {
 }
 
 // GetCreatedOn returns the CreatedOn field value
-func (o *VersionMetaData) GetCreatedOn() time.Time {
+func (o *VersionMetaData) GetCreatedOn() string {
 	if o == nil {
-		var ret time.Time
+		var ret string
 		return ret
 	}
 
@@ -187,7 +186,7 @@ func (o *VersionMetaData) GetCreatedOn() time.Time {
 
 // GetCreatedOnOk returns a tuple with the CreatedOn field value
 // and a boolean to check if the value has been set.
-func (o *VersionMetaData) GetCreatedOnOk() (*time.Time, bool) {
+func (o *VersionMetaData) GetCreatedOnOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -195,7 +194,7 @@ func (o *VersionMetaData) GetCreatedOnOk() (*time.Time, bool) {
 }
 
 // SetCreatedOn sets field value
-func (o *VersionMetaData) SetCreatedOn(v time.Time) {
+func (o *VersionMetaData) SetCreatedOn(v string) {
 	o.CreatedOn = v
 }
 
